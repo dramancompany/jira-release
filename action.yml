@@ -1,0 +1,41 @@
+name: JIRA release
+
+author: k.jeong
+
+description: Update JIRA issues and release project version
+
+inputs:
+  host:
+    description: JIRA host address
+    required: true
+  email:
+    description: JIRA email
+    required: true
+  apiToken:
+    description: JIRA api token
+    required: true
+  issueKeys:
+    description: JIRA issue keys (ex. 'ABC-1,ABC-2')
+    required: true
+  projectKey:
+    description: JIRA project key (ex. 'ABC')
+    required: true
+  versionPrefix:
+    description: version prefix (ex. 'career-v')
+    required: true
+  version:
+    description: release version (ex. '1.0.0')
+    required: true
+  componentName:
+    description: JIRA component name to release (ex. 'career-web')
+  issueDoneStatusName:
+    description: JIRA issue status name that represents `Done`
+    default: 'Done'
+
+runs:
+  using: 'node16'
+  main: 'lib/index.js'
+
+branding:
+  icon: 'tag'
+  color: 'yellow'
