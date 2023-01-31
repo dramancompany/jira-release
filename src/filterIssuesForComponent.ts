@@ -36,7 +36,7 @@ export default async function filterIssuesForComponent(
 
   const filteredIssues = relatedIssues.map((issue) => issue?.key).filter(Boolean);
 
-  info(`${colors.green}✅Found ${filteredIssues.length} issues out of ${issueKeys.length}!`);
+  info(`${colors.green}✅ Found ${filteredIssues.length} issues out of ${issueKeys.length}!`);
 
   return filteredIssues as string[];
 }

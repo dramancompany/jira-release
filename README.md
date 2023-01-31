@@ -9,12 +9,12 @@
 | `host`                | ✅       | JIRA host address (ex. 'https://dramancompany.atlassian.net') | -       |
 | `email`               | ✅       | JIRA email (ex. 'abc@dramancompany.atlassian.net')            | -       |
 | `apiToken`            | ✅       | JIRA api token                                                | -       |
-| `issueKeys`           | ✅       | JIRA issue keys to update (ex. 'ABC-1,ABC-2')                 | -       |
+| `issueKeys`           | -        | JIRA issue keys to update (ex. 'ABC-1,ABC-2')                 | -       |
 | `projectKey`          | ✅       | JIRA project key (ex. 'ABC')                                  | -       |
 | `versionPrefix`       | ✅       | version prefix (ex. 'career-v')                               | -       |
 | `version`             | ✅       | release version (ex. '1.0.0')                                 | -       |
-| `componentName`       | ✅       | JIRA component name to release (ex. 'career-web')             | -       |
-| `issueDoneStatusName` | ✅       | JIRA issue status name that represents `Done` (ex. 'Done')    | 'Done`  |
+| `componentName`       | -        | JIRA component name to release (ex. 'career-web')             | -       |
+| `issueDoneStatusName` | -        | JIRA issue status name that represents `Done` (ex. 'Done')    | 'Done`  |
 
 ## Outputs
 

@@ -4,7 +4,7 @@ export default function getVariables() {
   const host = getInput('host', { required: true });
   const email = getInput('email', { required: true });
   const apiToken = getInput('apiToken', { required: true });
-  const issueKeys = getInput('issueKeys', { required: true });
+  const issueKeys = getInput('issueKeys') || '';
   const projectKey = getInput('projectKey', { required: true });
   const versionPrefix = getInput('versionPrefix', { required: true });
   const version = getInput('version', { required: true });

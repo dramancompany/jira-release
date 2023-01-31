@@ -37,5 +37,5 @@ export default async function updateIssues(jiraClient: Version3Client, issueKeys
     }),
   );
 
-  info(`${issueKeys.length}✅ issues updated`);
+  info(`✅ ${issueKeys.length} issues updated`);
 }
