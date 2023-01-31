@@ -17,6 +17,7 @@ export default async function updateIssues(jiraClient: Version3Client, issueKeys
     issueKeys.map(async (issueKey) => {
       info(`${colors.white}  👉 Updating ${issueKey}...`);
 
+      const issue = await jiraClient.issues.getIssue({ issueIdOrKey: issueKey });
       const transitions = await jiraClient.issues.getTransitions({ issueIdOrKey: issueKey });
       const doneTransition = transitions.transitions?.find((t) =>
         t.name?.toLocaleLowerCase()?.includes(doneStatusName.toLocaleLowerCase()),
@@ -31,7 +32,7 @@ export default async function updateIssues(jiraClient: Version3Client, issueKeys
         }),
         await jiraClient.issues.editIssue({
           issueIdOrKey: issueKey,
-          fields: { fixVersions: [{ name: versionName }] },
+          fields: { fixVersions: [...issue.fields.fixVersions, { name: versionName }] },
         }),
       ]);
     }),
