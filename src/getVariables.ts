@@ -16,7 +16,7 @@ export default function getVariables() {
     host,
     email,
     apiToken,
-    issueKeys: issueKeys.split(','),
+    issueKeys: issueKeys ? issueKeys.split(',') : [],
     projectKey,
     versionName,
     componentName,

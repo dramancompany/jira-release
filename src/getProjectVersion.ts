@@ -6,7 +6,7 @@ import getVariables from './getVariables';
 export default async function getProjectVersion(jiraClient: Version3Client) {
   const { projectKey, versionName } = getVariables();
 
-  info(`${colors.white}Looking for project version ${versionName}...`);
+  info(`${colors.white}프로젝트 버전(${versionName}) 찾는중...`);
 
   const projectVersions = await jiraClient.projectVersions.getProjectVersions({
     projectIdOrKey: projectKey,
@@ -17,7 +17,7 @@ export default async function getProjectVersion(jiraClient: Version3Client) {
     return projectVersion;
   }
 
-  info(`${colors.yellow}Version ${versionName} not found, creating new one...`);
+  info(`${colors.yellow}프로젝트 버전(${versionName})이 존재하지 않아 새로 생성하는 중...`);
 
   return await jiraClient.projectVersions.createVersion({
     name: versionName,

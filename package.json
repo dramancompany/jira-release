@@ -1,6 +1,6 @@
 {
   "name": "jira-release",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Update JIRA issues and release project version",
   "main": "index.js",
   "scripts": {

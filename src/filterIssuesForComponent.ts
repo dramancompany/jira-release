@@ -10,11 +10,11 @@ export default async function filterIssuesForComponent(
   const { componentName } = getVariables();
 
   if (!issueKeys.length) {
-    info(`${colors.yellow}No issues to update`);
+    info(`${colors.yellow}업데이트할 이슈가 없습니다!`);
     return [];
   }
 
-  info(`${colors.white}⏳Filtering issues for ${componentName}...`);
+  info(`${colors.white}⏳${componentName}에 속한 이슈를 필터링 중...`);
 
   const relatedIssues = await Promise.all(
     issueKeys.map(async (issueKey) => {
@@ -36,7 +36,9 @@ export default async function filterIssuesForComponent(
 
   const filteredIssues = relatedIssues.map((issue) => issue?.key).filter(Boolean);
 
-  info(`${colors.green}✅ Found ${filteredIssues.length} issues out of ${issueKeys.length}!`);
+  info(
+    `${colors.green}✅ 총 ${issueKeys.length}개의 이슈 중 ${filteredIssues.length}개의 관련 이슈 필터링 완료!`,
+  );
 
   return filteredIssues as string[];
 }

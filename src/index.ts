@@ -13,7 +13,7 @@ import updateIssues from './updateIssues';
     const jiraClient = initJiraClient();
     const projectVersion = await getProjectVersion(jiraClient);
     if (!projectVersion) {
-      throw new Error(`🚫 Failed to find or create project version: ${versionName}`);
+      throw new Error(`🚫 프로젝트 버전(${versionName}) 조회 및 생성 실패!`);
     }
 
     const issueKeysToUpdate = !componentName

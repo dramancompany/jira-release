@@ -11,18 +11,18 @@ export default async function releaseProjectVersion(
 ) {
   const { projectKey } = getVariables();
 
-  info(
-    `${colors.white}⏳ Releasing project version ${projectVersion.name}(${projectVersion.id})...`,
-  );
+  info(`${colors.white}⏳ 프로젝트 버전(${projectVersion.name}) 릴리즈 중...`);
 
-  await jiraClient.projectVersions.updateVersion({
-    id: projectVersion.id!,
-    project: projectKey,
-    released: true,
-    releaseDate: dayjs().format('YYYY-MM-DD'),
-  });
+  try {
+    await jiraClient.projectVersions.updateVersion({
+      id: projectVersion.id!,
+      project: projectKey,
+      released: true,
+      releaseDate: dayjs().format('YYYY-MM-DD'),
+    });
+  } catch (error) {
+    info(`${colors.red}🚫 프로젝트 버전(${projectVersion.name}) 릴리즈 실패!`);
+  }
 
-  info(
-    `${colors.green}✅ Released project version ${projectVersion.name}(${projectVersion.id}) successfully!`,
-  );
+  info(`${colors.green}✅ 프로젝트 버전(${projectVersion.name}) 릴리즈 성공!`);
 }
